@@ -17,11 +17,13 @@ export default function RouteWrapper({
   return (
     <Route
       {...rest}
-      render={props => (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      )}
+      render={props => {
+        return (
+          <Layout>
+            <Component {...props} />
+          </Layout>
+        );
+      }}
     />
   );
 }
