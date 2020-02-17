@@ -7,8 +7,7 @@ export const HomePageElm = styled.div`
   justify-content: center;
   color: #fff;
   text-align: center;
-  padding: 20px;
-
+  padding: 30px 50px;
   height: 100%;
 
   h1 {

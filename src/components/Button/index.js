@@ -9,5 +9,6 @@ export default function Button({ label, navigateTo }) {
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  navigateTo: PropTypes.string.isRequired,
+  navigateTo: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    .isRequired,
 };
