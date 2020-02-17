@@ -16,7 +16,7 @@ export default function Home() {
         forma digital, capaz de levar a segurança, educação financeira para sabe
         se relacionar com dinheiro.
       </p>
-      <Button label="Vamos começar?" navigateTo="/dashboard" />
+      <Button label="Vamos começar?" navigateTo="/question" />
     </HomePageElm>
   );
 }

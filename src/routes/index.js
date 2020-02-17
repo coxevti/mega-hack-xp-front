@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Home from '~/pages/Home';
 import Dashboard from '~/pages/Dashboard';
 import Dynamic from '~/pages/Dynamic';
+import Question from '~/pages/Question';
 
 export default function Routes() {
   return (
@@ -23,6 +24,7 @@ export default function Routes() {
                 <Route path="/" exact component={Home} />
                 <Route path="/dashboard/dynamic" exact component={Dynamic} />
                 <Route path="/dashboard" component={Dashboard} />
+                <Route path="/question" component={Question} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

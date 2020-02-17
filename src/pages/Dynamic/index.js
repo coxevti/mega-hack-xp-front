@@ -5,7 +5,6 @@ import Button from '~/components/Button';
 import { Container, ListType } from './styles';
 
 export default function Dynamic({ location }) {
-  console.log(location);
   return (
     <Container>
       <h1>Teste:</h1>
