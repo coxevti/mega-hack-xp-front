@@ -1,22 +1,20 @@
 import React from 'react';
 
-import Button from '~/components/Button';
+import { FaArrowLeft } from 'react-icons/fa';
+import { Container } from './styles';
 
-import { Container, ListType } from './styles';
+export default function Dynamic({ location, history }) {
+  function handleGoBack() {
+    history.goBack();
+  }
 
-export default function Dynamic({ location }) {
   return (
     <Container>
-      <h1>Teste:</h1>
-      <ul>
-        {location.state.map(item => (
-          <ListType key={item.id}>
-            <strong>{item.title}</strong>
-            <span>{item.description}</span>
-            <Button navigateTo="/s" label="Saiba mais..." />
-          </ListType>
-        ))}
-      </ul>
+      <div dangerouslySetInnerHTML={{ __html: location.state.content }} />
+
+      <button type="button" onClick={handleGoBack}>
+        <FaArrowLeft />
+      </button>
     </Container>
   );
 }

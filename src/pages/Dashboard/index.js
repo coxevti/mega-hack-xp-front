@@ -1,61 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button from '~/components/Button';
 
+import api from '~/services/api';
+
 import { Container, ListType } from './styles';
 
-const data = [
-  {
-    id: 1,
-    title: 'Tesouro Direto',
-    description:
-      'O Tesouro Direto reúne segurança, rentabilidade e opções de títulos com diferentes prazos. Invista de acordo com o seu objetivo..',
-  },
-  {
-    id: 2,
-    title: 'Renda Fixa',
-    description:
-      'Invista de forma simples, segura e com possibilidade de retorno superior à poupança.',
-  },
-  {
-    id: 3,
-    title: 'Fundos de investimento',
-    description:
-      'Investimento ideal para quem quer diversificar sua carteira de investimentos.',
-  },
-  {
-    id: 4,
-    title: 'Fundos imobiliários',
-    description: 'Receba um aluguel sem a burocracia de comprar um imóvel.',
-  },
-  {
-    id: 5,
-    title: 'Ações',
-    description:
-      'Chegou a hora de investir na Bolsa. Seja sócio de grandes empresas do país.',
-  },
-];
-
 export default function Dashboard() {
+  const [investments, setInvestments] = useState([]);
+  useEffect(() => {
+    async function loadInvestments() {
+      const response = await api.get('Investments');
+      setInvestments(response.data.results);
+    }
+    loadInvestments();
+  }, []);
+
   return (
     <Container>
-      <h1>Selecione uma tipo investimento:</h1>
+      <h1>Conheça todos os investimentos</h1>
       <ul>
-        {data.map(item => (
-          <ListType key={item.id}>
+        {investments.map(item => (
+          <ListType key={item.objectId}>
             <strong>{item.title}</strong>
             <span>{item.description}</span>
             <Button
               navigateTo={{
                 pathname: '/dashboard/dynamic',
-                state: [
-                  {
-                    id: 5,
-                    title: 'Teste',
-                    description:
-                      'Chegou a hora de investir na Bolsa. Seja sócio de grandes empresas do país.',
-                  },
-                ],
+                state: {
+                  content: item.content,
+                },
               }}
               label="Saiba mais..."
             />

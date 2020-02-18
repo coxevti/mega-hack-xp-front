@@ -16,6 +16,20 @@ export const Container = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
   }
+  @media (max-width: 450px) {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
+    }
+  }
+  @media (min-width: 450px) and (max-width: 800px) {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 15px;
+    }
+  }
 `;
 
 export const ListType = styled.li`
