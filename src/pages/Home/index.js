@@ -13,10 +13,9 @@ export default function Home() {
       </h1>
       <p>
         Nosso orientador te ajudará no conhecimento, acesso, oportunidade de
-        forma digital, capaz de levar a segurança, educação financeira para sabe
-        se relacionar com dinheiro.
+        forma digital, capaz de levar a segurança e educação financeira.
       </p>
-      <Button label="Vamos começar?" navigateTo="/chat" />
+      <Button label="Vamos conhecer?" navigateTo="/chat" />
     </HomePageElm>
   );
 }
